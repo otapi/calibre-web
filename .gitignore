@@ -29,3 +29,6 @@ gdrive_credentials
 
 vendor
 client_secrets.json
+
+# syncthing
+.stfolder
