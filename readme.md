@@ -15,4 +15,5 @@ download-shelf
 
 - [x] Default page is the Discovery
 
-- [ ] Possibility to make a subdomain. E.g. to reach the Calibre-Web via url like books.hostname
+- [ ] Show books' spines as width as many wordcounts have
+
