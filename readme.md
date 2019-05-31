@@ -1,6 +1,6 @@
 # About
 
-This is a customized fork of the [Calibre-Web](https://github.com/janeczku/calibre-web) aimed to my own usage.
+This is a customized fork of the [Calibre-Web](https://github.com/janeczku/calibre-web) for my special needs.
 
 ## Extra Features
 
