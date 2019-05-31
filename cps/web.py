@@ -1224,15 +1224,17 @@ def get_updater_status():
             status['status'] = 11
     return json.dumps(status)
 
-
 @app.route("/", defaults={'page': 1})
 @app.route('/page/<int:page>')
 @login_required_if_no_ano
 def index(page):
-    entries, random, pagination = fill_indexpage(page, db.Books, True, [db.Books.timestamp.desc()])
-    return render_title_template('index.html', random=random, entries=entries, pagination=pagination,
-                                 title=_(u"Recently Added Books"), page="root", config_authors_max=config.config_authors_max)
-
+    if current_user.show_random_books():
+        entries, __, pagination = fill_indexpage(page, db.Books, True, [func.randomblob(2)])
+        pagination = Pagination(1, config.config_books_per_page, config.config_books_per_page)
+        return render_title_template('discover.html', entries=entries, pagination=pagination,
+                                     title=_(u"Random Books"), page="discover")
+    else:
+        abort(404)
 
 @app.route('/books/newest', defaults={'page': 1})
 @app.route('/books/newest/page/<int:page>')

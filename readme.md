@@ -13,4 +13,6 @@ download-shelf
 
 - [x] Full size cover image at details
 
+- [x] Default page is the Discovery
+
 - [ ] Possibility to make a subdomain. E.g. to reach the Calibre-Web via url like books.hostname
