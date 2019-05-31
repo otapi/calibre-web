@@ -2419,7 +2419,7 @@ def send_to_kindle(book_id, book_format, convert):
 
 
 @app.route("/shelf/add/<int:shelf_id>/<int:book_id>")
-@login_required
+@login_required_if_no_ano
 def add_to_shelf(shelf_id, book_id):
     shelf = ub.session.query(ub.Shelf).filter(ub.Shelf.id == shelf_id).first()
     if shelf is None:
@@ -2472,7 +2472,7 @@ def add_to_shelf(shelf_id, book_id):
 
 
 @app.route("/shelf/massadd/<int:shelf_id>")
-@login_required
+@login_required_if_no_ano
 def search_to_shelf(shelf_id):
     shelf = ub.session.query(ub.Shelf).filter(ub.Shelf.id == shelf_id).first()
     if shelf is None:
@@ -2526,7 +2526,7 @@ def search_to_shelf(shelf_id):
 
 
 @app.route("/shelf/remove/<int:shelf_id>/<int:book_id>")
-@login_required
+@login_required_if_no_ano
 def remove_from_shelf(shelf_id, book_id):
     shelf = ub.session.query(ub.Shelf).filter(ub.Shelf.id == shelf_id).first()
     if shelf is None:
