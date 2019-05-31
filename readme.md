@@ -11,6 +11,6 @@ download-shelf
 
 - [x] Even a Guest user can add books to public shelves.
 
-- [ ] Full size cover image at details on mobile
+- [x] Full size cover image at details
 
 - [ ] Possibility to make a subdomain. E.g. to reach the Calibre-Web via url like books.hostname
