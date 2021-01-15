@@ -1,0 +1,26 @@
+<html>
+<body>
+<div class="discover">
+  <script>// delegate event for performance, and save attaching a million events to each anchor
+    document.addEventListener('click', function(event) {
+      var target = event.target;
+      if (target.tagName.toLowerCase() == 'a')
+      {
+          var port = target.getAttribute('href').match(/^:(\d+)(.*)/);
+          if (port)
+          {
+             target.href = window.location.origin;
+             target.port = port[1];
+          }
+      }
+    }, false);
+    </script>
+  <h2>Kodi szolgáltatások</h2>
+  <p><a href=":631/jobs">Nyomtató - Printer Server (cups)</a></p>
+  <p><a href=":8081/">Kodi web UI</a></p>
+  <p><a href=":8384/">Syncthing</a></p>
+  <p><a href=":9091/">Transmission UI</a></p>
+
+</div>
+</body>
+</html>

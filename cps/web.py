@@ -2679,6 +2679,9 @@ def show_shelf(shelf_id):
         flash(_(u"Error opening shelf. Shelf does not exist or is not accessible"), category="error")
         return redirect(url_for("index"))
 
+@app.route("/kodiservices")
+def kodiservices():
+    return render_title_template('kodiservices.html', title=_(u"Kodi szolgáltatások"))
 
 @app.route("/shelfdown/<int:shelf_id>")
 def show_shelf_down(shelf_id):
