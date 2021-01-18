@@ -2681,7 +2681,13 @@ def show_shelf(shelf_id):
 
 @app.route("/kodiservices")
 def kodiservices():
-    return render_title_template('kodiservices.html', title=_(u"Kodi szolgáltatások"))
+    backup2cloudlogfile = "/mnt/HDD/Backup2Cloud/run.log"
+    backup2cloud_log = "The log file does not exists: %s" % backup2cloudlogfile
+    if os.path.isfile(backup2cloudlogfile):
+        backup2cloud_log = "last modified: %s\n\n" % time.ctime(os.path.getmtime(backup2cloudlogfile))
+        with open(backup2cloudlogfile, 'r') as f:
+            backup2cloud_log += f.read()
+    return render_title_template('kodiservices.html', title=_(u"Kodi szolgáltatások"), backup2cloud_log = backup2cloud_log)
 
 @app.route("/shelfdown/<int:shelf_id>")
 def show_shelf_down(shelf_id):
